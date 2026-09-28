@@ -1,25 +1,25 @@
-export const SITE_URL = "https://dcrohit-portfolio.netlify.app";
+export const SITE_URL = "https://labs.sushraj.in";
 
 export const GA_MEASUREMENT_ID = "G-3M228E733R";
 
 /** FormSubmit inbox alias. Set after activating the endpoint once (see README). */
 export const CONTACT_FORM_ENDPOINT =
-  "https://formsubmit.co/ajax/singh.rsingh.rohit@gmail.com";
+  "https://formsubmit.co/ajax/rohit@sushraj.in";
 
 export const profile = {
   name: "Rohit Singh",
   /** The parent brand. Everything he owns sits under it. */
   group: "Sushraj Ventures",
-  groupUrl: "https://sushrajventures.netlify.app/",
-  /** The engineering studio inside the group, and the name on the product line. */
-  brand: "DCodeIntellect",
+  groupUrl: "https://sushraj.in/",
+  /** The name on the product line. It was DCodeIntellect until 2026. */
+  brand: "Sushraj Ventures",
   /** Rendered as the <h1> support line. Kept short on purpose. */
   headline: "Senior software engineer. Founder of Sushraj Ventures.",
   role: "Senior Software Engineer · Founder, Sushraj Ventures",
-  bio: "I build the systems companies actually run on. Sushraj Ventures is my group: Sushraj Pharma, a pharmaceutical manufacturing consulting practice, the craft studio Arthmala, and the DCodeIntellect product line. Outside the group I am the senior software engineer behind Fundrev, an AI operating system for private capital, and co-founder and tech lead at Tunegram.",
+  bio: "I build the systems companies actually run on. Sushraj Ventures is my technology company: AI and data engineering, custom software, websites and its own products. I also run the craft studio Arthmala. Outside my own companies I am the senior software engineer behind Fundrev, an AI operating system for private capital, and co-founder and tech lead at Tunegram.",
   /** Used in metadata and the JSON-LD Person node. */
   seoDescription:
-    "Rohit Singh, senior software engineer and founder of Sushraj Ventures: Sushraj Pharma, a pharmaceutical manufacturing consulting practice, the craft studio Arthmala and the DCodeIntellect product line. Senior software engineer on Fundrev, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
+    "Rohit Singh, senior software engineer and founder of Sushraj Ventures, a technology company for AI and data engineering, custom software, websites and its own products. Senior software engineer on Fundrev, co-founder and tech lead at Tunegram. Building AI systems, marketplaces and enterprise platforms with TypeScript, React, Next.js, Vue, Node.js and .NET.",
   tagline: "Where code meets clarity, and data drives decisions.",
   location: {
     city: "Daulatpur Chowk",
@@ -29,7 +29,7 @@ export const profile = {
     postal: "177204",
     street: "Tehsil Ghanari, District Una",
   },
-  email: "singh.rsingh.rohit@gmail.com",
+  email: "rohit@sushraj.in",
   phone: "+918219622638",
   phoneDisplay: "+91 82196 22638",
   availability: "Open to founding-engineer, staff and advisory conversations",
@@ -103,7 +103,7 @@ export const metrics = [
     label: "Years building",
     detail: "Enterprise systems in production",
   },
-  { value: 3, suffix: "", label: "Ventures", detail: "Founded, under Sushraj" },
-  { value: 6, suffix: "", label: "Products shipped", detail: "Under DCodeIntellect" },
+  { value: 2, suffix: "", label: "Ventures", detail: "Founded and owned" },
+  { value: 6, suffix: "", label: "Products shipped", detail: "Under Sushraj Ventures" },
   { value: 87, suffix: "", label: "Technologies", detail: "Across the production stack" },
 ] as const;

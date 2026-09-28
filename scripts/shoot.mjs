@@ -15,7 +15,7 @@ const SHOTS = [
   { name: "home-fold", path: "/", width: 1440, height: 900, full: false },
   { name: "home-mobile", path: "/", width: 390, height: 844, full: true },
   { name: "work-fundrev", path: "/work/fundrev/", width: 1440, height: 900, full: true },
-  { name: "work-derp", path: "/work/d-erp/", width: 1440, height: 900, full: false },
+  { name: "work-erp", path: "/work/erp/", width: 1440, height: 900, full: false },
 ];
 
 const browser = await chromium.launch();

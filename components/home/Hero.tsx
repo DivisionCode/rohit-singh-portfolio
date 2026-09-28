@@ -129,8 +129,7 @@ export function Hero() {
         >
           <Figure value={years.value} suffix={years.suffix} /> years building enterprise
           systems in production.{" "}
-          <Figure value={ventures.value} suffix={ventures.suffix} /> businesses of my own
-          under {profile.group},{" "}
+          <Figure value={ventures.value} suffix={ventures.suffix} /> companies of my own,{" "}
           <Figure value={products.value} suffix={products.suffix} /> products shipped under{" "}
           {profile.brand}, and{" "}
           <Figure value={tech.value} suffix={tech.suffix} /> technologies I have actually

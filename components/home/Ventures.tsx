@@ -40,27 +40,27 @@ export function Ventures() {
         eyebrow={profile.group}
         title={
           <>
-            Three businesses I own and operate,{" "}
-            <span className="text-ink-faint">and two platforms outside the group.</span>
+            Two companies of my own,{" "}
+            <span className="text-ink-faint">and two platforms I build outside them.</span>
           </>
         }
         lead={
           <>
-            Pharmaceutical manufacturing consulting, Indian craft and enterprise software, under{" "}
             <a
               href={profile.groupUrl}
               className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-ink"
             >
               {profile.group}
-            </a>
-            . Three trades held to one standard: find where the process loses money, build the system
-            that closes the gap, then run it.
+            </a>{" "}
+            is my technology company: AI and data engineering, custom software, websites and its own
+            products. Arthmala is my craft studio. Both run on one standard: find where the process
+            loses money, build the system that closes the gap, then run it.
           </>
         }
-        aside={`${owned.length} in the group · ${led.length} outside`}
+        aside={`${owned.length} owned · ${led.length} outside`}
       />
 
-      <SpotlightGroup className="grid gap-px overflow-clip rounded-xl border border-line bg-line lg:grid-cols-3 lg:gap-y-0 lg:[grid-template-rows:auto_auto_auto_auto_auto_1fr_auto_auto]">
+      <SpotlightGroup className="grid gap-px overflow-clip rounded-xl border border-line bg-line lg:grid-cols-2 lg:gap-y-0 lg:[grid-template-rows:auto_auto_auto_auto_auto_1fr_auto_auto]">
         {owned.map((venture, position) => (
           <VentureCard key={venture.slug} venture={venture} index={position + 1} />
         ))}

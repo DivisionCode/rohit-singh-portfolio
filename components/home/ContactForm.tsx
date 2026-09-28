@@ -71,7 +71,7 @@ export function ContactForm() {
       method="POST"
       className="flex flex-col gap-7"
     >
-      <input type="hidden" name="_subject" value="New message from dcodeintellect" />
+      <input type="hidden" name="_subject" value="New message from labs.sushraj.in" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
       <input

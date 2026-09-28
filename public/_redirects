@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects.
+/index.html  /  301
+# Product pages renamed in 2026, when DCodeIntellect became Sushraj Ventures.
+/work/d-erp/*  /work/erp/  301
+/work/d-crm/*  /work/crm/  301
+/work/d-pms/*  /work/pharmacy/  301
+/work/d-geo/*  /work/geo/  301
+/work/dcode-meta/*  /work/index/  301
+/work/dcodeintellect/*  /work/sushraj-ventures/  301
+/work/sushraj-pharma/*  /  301

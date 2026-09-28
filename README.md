@@ -1,6 +1,6 @@
 # Rohit Singh portfolio
 
-The personal portfolio of Rohit Singh, senior software engineer and founder of Sushraj Ventures. It is a statically exported Next.js site, served by Netlify at [dcrohit-portfolio.netlify.app](https://dcrohit-portfolio.netlify.app).
+The personal portfolio of Rohit Singh, senior software engineer and founder of Sushraj Ventures. It is a statically exported Next.js site, served by Cloudflare Pages at [labs.sushraj.in](https://labs.sushraj.in).
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue)](CHANGELOG.md)
 [![CI](https://github.com/DivisionCode/rohit-singh-portfolio/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/DivisionCode/rohit-singh-portfolio/actions/workflows/ci.yml)
@@ -9,7 +9,7 @@ The personal portfolio of Rohit Singh, senior software engineer and founder of S
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Licence](https://img.shields.io/badge/licence-proprietary-lightgrey)](LICENSE)
-[![Deploy](https://img.shields.io/badge/deploy-Netlify-00C7B7?logo=netlify&logoColor=white)](https://dcrohit-portfolio.netlify.app)
+[![Deploy](https://img.shields.io/badge/deploy-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)](https://labs.sushraj.in)
 
 ## Contents
 
@@ -34,12 +34,12 @@ The personal portfolio of Rohit Singh, senior software engineer and founder of S
 
 The site is a single home page plus a case study page for each piece of work. It presents:
 
-- Sushraj Ventures, Rohit Singh's group, and the businesses inside it: Sushraj Pharma, Arthmala and DCodeIntellect.
+- Rohit Singh's own companies: Sushraj Ventures, his technology company, and the craft studio Arthmala.
 - Engagements outside the group, listed separately from the group's own businesses.
-- The DCodeIntellect product line, with a case study for each product.
+- The Sushraj Ventures product line (named DCodeIntellect until 2026), with a case study for each product.
 - A reference architecture, engineering principles, the production technology stack, certifications and a contact form.
 
-All copy is typed data in `lib/content/`. `next build` compiles the site to plain files in `out/`, and Netlify serves them without a Node.js runtime.
+All copy is typed data in `lib/content/`. `next build` compiles the site to plain files in `out/`, and Cloudflare Pages serves them without a Node.js runtime.
 
 Version 2.0.0 replaced the earlier hand-written HTML and CSS site, which remains in git history up to the `v1.0.0` tag. See [CHANGELOG.md](CHANGELOG.md).
 
@@ -56,7 +56,7 @@ Version 2.0.0 replaced the earlier hand-written HTML and CSS site, which remains
 - **Contact form** posting to [FormSubmit](https://formsubmit.co), with loading, success and error states, a fallback that works without JavaScript, and a honeypot field.
 - **SEO:** per-route metadata through the Next.js Metadata API, Open Graph and Twitter cards, `schema.org/Person` JSON-LD, generated `sitemap.xml` and `robots.txt`, a Google Search Console verification file and a Pinterest domain verification tag.
 - **Analytics:** Google Analytics 4, loaded after hydration.
-- **Hosting configuration:** security headers and a Content Security Policy, long-lived cache headers for hashed assets, and 301 redirects for legacy and retired URLs, all in `netlify.toml`.
+- **Hosting configuration:** security headers and a Content Security Policy, long-lived cache headers for hashed assets, and 301 redirects for legacy and retired URLs, all in `public/_headers` and `public/_redirects`.
 - **Accessibility:** a skip link, labelled navigation landmarks, `aria-current` on the active nav item, and decorative graphics hidden from assistive technology.
 
 ## Tech stack
@@ -77,12 +77,12 @@ Versions are the ones resolved in `package-lock.json`. The ranges declared in `p
 | Type definitions | `@types/node`, `@types/react`, `@types/react-dom` | 20.19.43 / 19.3.0 / 19.3.0 | Types for Node.js and React |
 | Browser automation | Playwright (Chromium) | 1.63.0 (`^1.63.0`) | Drives the browser checks and screenshot tools in `scripts/` |
 | Project tooling | Node.js ES modules in `scripts/*.mjs` | Not versioned | Visual, behavioural, performance, analytics and house style checks (see [Scripts](#scripts)) |
-| Runtime | Node.js | 22 | Pinned in `.nvmrc`, `engines.node` (`>=22`) and Netlify's `NODE_VERSION` |
+| Runtime | Node.js | 22 | Pinned in `.nvmrc` and `engines.node` (`>=22`) |
 | Package manager | npm | Lockfile version 3 | `npm ci` installs exactly what `package-lock.json` records |
 | Analytics | Google Analytics 4 (gtag.js) | Hosted service | Loaded with `next/script` after hydration, with `anonymize_ip` set |
 | Contact form | FormSubmit | Hosted service | Delivers contact form submissions by email; no backend of our own |
-| Hosting | Netlify | Hosted service | Runs `npm run build` and publishes `out/` |
-| Security headers | HTTP headers and CSP in `netlify.toml` | Not versioned | HSTS, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` and a Content Security Policy |
+| Hosting | Cloudflare Pages | Hosted service | Serves `out/`, deployed with `wrangler pages deploy` |
+| Security headers | HTTP headers and CSP in `public/_headers` | Not versioned | HSTS, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` and a Content Security Policy |
 | Continuous integration | GitHub Actions: `actions/checkout`, `actions/setup-node` | v7 / v7 | Lint, typecheck, house style and build on every push to `master` and every pull request |
 
 The seven client components are `Header`, `ScrollProgress`, `ThemeToggle`, `CommandPalette`, `Counter`, `Spotlight` and `ContactForm`. Everything else renders at build time. There is no animation library, no state management library and no CSS-in-JS.
@@ -101,8 +101,8 @@ flowchart LR
   content --> components --> app
   css --> app
   app -->|"next build<br/>output: export"| out["out/<br/>static HTML, CSS, JS, media"]
-  out -->|"publish"| netlify["Netlify CDN<br/>headers, CSP, cache, redirects"]
-  netlify --> browser["Visitor's browser"]
+  out -->|"wrangler pages deploy"| pages["Cloudflare Pages<br/>headers, CSP, cache, redirects"]
+  pages --> browser["Visitor's browser"]
   browser -->|"gtag.js"| ga["Google Analytics 4"]
   browser -->|"contact form POST"| formsubmit["FormSubmit"]
 ```
@@ -111,7 +111,7 @@ flowchart LR
 2. **Components.** `components/home/` has one component per home page section. `components/site/` holds the chrome, `components/ui/` the shared primitives, `components/visual/` the SVG graphics and `components/work/` the case study pieces.
 3. **Routes.** `app/layout.tsx` sets fonts, metadata, JSON-LD, the theme script and analytics. `app/page.tsx` composes the home page, and `app/work/[slug]/page.tsx` renders each case study.
 4. **Build.** `next build` prerenders every route into `out/`. The generated `sitemap.xml` and `robots.txt` are forced static.
-5. **Delivery.** Netlify builds `master`, publishes `out/`, and applies the headers, cache rules and redirects in `netlify.toml`.
+5. **Delivery.** `wrangler pages deploy` uploads `out/` to Cloudflare Pages, which applies the headers, cache rules and redirects in `_headers` and `_redirects`.
 6. **Third parties at runtime.** The browser loads gtag.js from Google and sends measurement hits to Google Analytics. The contact form posts to FormSubmit. The CSP allows exactly these hosts.
 
 ## Getting started
@@ -158,14 +158,14 @@ npm run typecheck
 
 None. The site reads no environment variables at build time or at runtime.
 
-The values that could have been configuration are constants in `lib/content/site.ts`: the site URL, the Google Analytics measurement ID and the FormSubmit endpoint. None of them is secret. The only build setting is `NODE_VERSION = "22"`, which `netlify.toml` gives to Netlify's build image. `.env*` files are ignored by git.
+The values that could have been configuration are constants in `lib/content/site.ts`: the site URL, the Google Analytics measurement ID and the FormSubmit endpoint. None of them is secret. `.env*` files are ignored by git.
 
 ## Scripts
 
 | Script | Runs | What it does |
 | --- | --- | --- |
 | `dev` | `next dev` | Development server at `http://localhost:3000`, with hot reload. |
-| `build` | `next build` | Static export into `out/`. This is exactly what Netlify publishes. |
+| `build` | `next build` | Static export into `out/`. This is exactly what is deployed to Cloudflare Pages. |
 | `start` | `next start` | Not usable with this project: Next.js refuses `next start` under `output: "export"`. Serve `out/` with a static server instead. |
 | `lint` | `eslint` | ESLint with the Next.js core web vitals and TypeScript presets. |
 | `typecheck` | `tsc --noEmit` | Strict TypeScript check. Needs the generated route types (see [Getting started](#type-checking-on-a-fresh-clone)). |
@@ -213,7 +213,8 @@ The values that could have been configuration are constants in `lib/content/site
     media/                 Headshot, grain texture, venture site screenshots, product images
     google11e1704e48f5c4c0.html   Google Search Console verification
   scripts/                 Playwright checks, screenshot tools and the house style guard
-  netlify.toml             Build settings, headers, CSP, cache rules, redirects
+  public/_headers          Headers, CSP and cache rules for Cloudflare Pages
+  public/_redirects        301 redirects
   next.config.ts           Static export, trailing slashes, unoptimised images, dev origins
   eslint.config.mjs        ESLint flat config
   postcss.config.mjs       Tailwind CSS v4 through PostCSS
@@ -285,21 +286,25 @@ npm run gaps       # spacing between sections
 npm run shoot      # screenshots for review, in screens/
 ```
 
-After a deploy that touches `netlify.toml` or analytics, run `npm run ga` against the live site. The CSP is set by Netlify, so no local run exercises it.
+After a deploy that touches `_headers` or analytics, run `npm run ga` against the live site. The CSP is set by the host, so no local run exercises it.
 
 House style and the engineering conventions these checks enforce are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Deployment
 
-Netlify builds and deploys the `master` branch. Everything it needs is in `netlify.toml`:
+The site is served by **Cloudflare Pages** (project `sushrajtech`) at [labs.sushraj.in](https://labs.sushraj.in). Deploys are made from this Mac:
 
-- **Build:** `npm run build` on Node.js 22, publishing `out/`.
-- **Headers on every path:** `Strict-Transport-Security` (one year, subdomains, preload), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, a `Permissions-Policy` that turns off camera, microphone, geolocation and interest cohorts, and the Content Security Policy.
-- **Content Security Policy:** same-origin by default. Scripts may also load from Google Tag Manager and Google Analytics, connections may go to Google Analytics and FormSubmit, and forms may post to FormSubmit. Inline scripts and styles are allowed (`'unsafe-inline'`), because the exported pages carry inline scripts: the Next.js payload, the theme script and the analytics initialiser. `frame-ancestors 'none'`, `base-uri 'self'` and `object-src 'none'` are set. Google advertising endpoints are deliberately not allowed.
-- **Caching:** `/_next/static/*` is immutable for a year; `/media/*` and `/logos/*` are cached for a week.
-- **Redirects (301):** legacy URLs from the hand-written site (`/index.html`, `/brief.html`, `/contact.html`, `/login.html`, `/payrollDashboard.html`) and the retired product pages (`/work/d-trade/*`, `/work/d-analysis/*`) go to their current homes.
+```sh
+npm run build
+npx wrangler pages deploy out --project-name sushrajtech --branch main
+```
 
-GitHub Actions CI runs separately from Netlify's build. Merge to `master` only when CI passes.
+Everything the host needs ships inside `out/`, from `public/`:
+
+- **`_headers`:** `Strict-Transport-Security`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, a `Permissions-Policy`, and the Content Security Policy (same-origin by default; Google Analytics and FormSubmit allowed; inline scripts allowed because the exported pages carry the Next.js payload, the theme script and the analytics initialiser). `/_next/static/*` is immutable for a year; `/media/*` and `/logos/*` are cached for a week.
+- **`_redirects`:** `/index.html` to `/`, and the product pages renamed in 2026 (`/work/d-erp/` and the rest) to their new addresses.
+
+GitHub Actions CI runs separately. Deploy only from a commit that passed CI.
 
 ## Versioning and releases
 
@@ -331,4 +336,4 @@ Proprietary. Copyright (c) 2025-2026 Rohit Singh. All rights reserved. The sourc
 | GitHub | [@DivisionCode](https://github.com/DivisionCode) (code owner for every path, see [`.github/CODEOWNERS`](.github/CODEOWNERS)) |
 | Contact | singh.rsingh.rohit@gmail.com |
 | Repository | [DivisionCode/rohit-singh-portfolio](https://github.com/DivisionCode/rohit-singh-portfolio) |
-| Live site | [dcrohit-portfolio.netlify.app](https://dcrohit-portfolio.netlify.app) |
+| Live site | [labs.sushraj.in](https://labs.sushraj.in) |

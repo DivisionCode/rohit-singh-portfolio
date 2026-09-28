@@ -36,7 +36,7 @@ export const layers: Layer[] = [
       "Glide Data Grid",
       "Plotly",
     ],
-    provenIn: ["Fundrev", "Tunegram", "DCodeIntellect"],
+    provenIn: ["Fundrev", "Tunegram", "Sushraj Ventures"],
   },
   {
     id: "edge",
@@ -69,7 +69,7 @@ export const layers: Layer[] = [
       "Argon2",
       "OpenTelemetry",
     ],
-    provenIn: ["Fundrev", "DCodeIntellect"],
+    provenIn: ["Fundrev", "Sushraj Ventures"],
   },
   {
     id: "orchestration",
@@ -112,7 +112,7 @@ export const layers: Layer[] = [
       "Airbyte",
       "S3",
     ],
-    provenIn: ["Fundrev", "DCodeIntellect"],
+    provenIn: ["Fundrev", "Sushraj Ventures"],
   },
   {
     id: "platform",

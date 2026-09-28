@@ -11,7 +11,7 @@
 import { chromium } from "playwright";
 
 const BASE = process.argv[2] ?? "http://localhost:3000";
-const PAGES = ["/", "/work/fundrev/", "/work/d-erp/"];
+const PAGES = ["/", "/work/fundrev/", "/work/erp/", "/work/sushraj-ventures/"];
 const STEP = 600;
 
 const browser = await chromium.launch();

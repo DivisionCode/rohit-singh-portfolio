@@ -35,6 +35,6 @@ export const principles: Principle[] = [
     index: "05",
     title: "Build it to be handed over",
     body: "The measure of a system is how well it runs when I am not the one running it. Typed contracts, modular structure, and documentation written for the person who inherits it, which across four ventures is usually someone I hired.",
-    evidence: "Six systems shipped and maintained under DCodeIntellect since 2018.",
+    evidence: "Six systems shipped and maintained since 2018, now under Sushraj Ventures.",
   },
 ];

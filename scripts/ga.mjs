@@ -1,6 +1,6 @@
 /** Confirms analytics hits are not blocked by the CSP on the live domain. */
 import { chromium } from "playwright";
-const BASE = process.argv[2] ?? "https://dcrohit-portfolio.netlify.app";
+const BASE = process.argv[2] ?? "https://labs.sushraj.in";
 const b = await chromium.launch();
 const p = await b.newPage();
 /*

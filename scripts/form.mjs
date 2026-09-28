@@ -132,7 +132,7 @@ async function fill(page) {
   if (alert) {
     const text = await alert.textContent();
     check("alert repeats the reason", /not activated/i.test(text ?? ""));
-    check("alert offers the direct address", /gmail\.com/.test(text ?? ""));
+    check("alert offers the direct address", /rohit@sushraj\.in/.test(text ?? ""));
   }
   await page.close();
 }

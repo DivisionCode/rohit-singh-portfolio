@@ -28,7 +28,7 @@ export function Products() {
         title={
           <>
             {NUMERALS[products.length]} systems shipped under{" "}
-            <span className="text-ink-faint">DCodeIntellect.</span>
+            <span className="text-ink-faint">Sushraj Ventures.</span>
           </>
         }
         lead="ERP, CRM, pharmacy management, commerce and the tooling around them. Each built to the standard a business would need to actually run on it: authentication, role-based access, modular services and a deployment path that does not depend on me."

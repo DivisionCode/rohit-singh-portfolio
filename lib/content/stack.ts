@@ -13,7 +13,7 @@ export type StackGroup = {
 
 /**
  * Drawn from what is actually in production, principally the Fundrev platform
- * (infrastructure, backend and web client) plus the DCodeIntellect line.
+ * (infrastructure, backend and web client) plus the Sushraj Ventures product line.
  * Technologies only. No internal service names, hostnames or architecture
  * detail from the private repositories.
  */

@@ -59,51 +59,42 @@ export type WorkItem = {
  * ------------------------------------------------------------------------- */
 export const ventures: WorkItem[] = [
   {
-    slug: "sushraj-pharma",
-    name: "Sushraj Pharma",
+    slug: "sushraj-ventures",
+    name: "Sushraj Ventures",
     kind: "venture",
     group: "owned",
     role: "Founder",
-    period: "2026",
+    period: "2018 to present",
     status: "live",
-    tagline: "Pharmaceutical manufacturing consulting, from first quote to dispatch.",
+    tagline: "Software, data and AI for businesses.",
     summary:
-      "A consulting practice that helps pharma brands choose the right WHO-GMP and ISO certified manufacturer, rate and pack, and follows the work through to dispatch.",
+      "My technology company: AI and data engineering, custom software, websites, and a line of its own products, ERP, CRM, pharmacy management, commerce and the tooling around them.",
     narrative: [
-      "The pharma arm of Sushraj Ventures, based in Una, Himachal Pradesh. Anyone who wants a medicine made under their own brand faces the same questions: which manufacturer, at what rate, in what pack, and with which papers. Too often the answers come from a few phone calls and whichever quote arrives first.",
-      "Sushraj Pharma does that groundwork properly. It compares WHO-GMP and ISO certified manufacturers, quotes and rates for the client's exact product, settles packaging, artwork and documentation, and follows production through to dispatch, with pharma scientists checking every consignment before it leaves. It is consulting and facilitation only: licensed manufacturers make and supply the product, and the client decides who to work with.",
-      "The platform I am building for it is a CRM that holds each client's demand, the quotes from manufacturers and brands, and every stage from the first call to dispatch in one record instead of a thread. It is the same problem as every other system on this page, which is a process nobody has tooled, carrying the cost.",
+      "Sushraj Ventures is where my own work lives. The product line started in 2018 under the name DCodeIntellect and now carries the Sushraj Ventures name, one company rather than a studio and a brand.",
+      "It builds for businesses that still run on spreadsheets and message threads: data pipelines and AI search where the answer is buried in documents, custom ERP and CRM where off-the-shelf software models the wrong business, and websites that are fast, findable and easy to run.",
+      "The through-line is enterprise shape: modular boundaries, role-based access from the first migration rather than bolted on later, REST contracts a second team can pick up, and reporting that reconciles against the operational data it came from.",
     ],
-    links: [{ label: "sushrajpharma.netlify.app", href: "https://sushrajpharma.netlify.app/", kind: "site" }],
+    links: [
+      { label: "sushraj.in", href: "https://sushraj.in/", kind: "site" },
+      { label: "github.com/DivisionCode", href: "https://github.com/DivisionCode", kind: "repo" },
+    ],
     accentVar: "--color-dcode",
-    domains: ["Pharmaceutical manufacturing consulting", "Market analysis", "Operations"],
-    stack: [],
+    domains: ["AI and data engineering", "Custom software", "Websites", "Products"],
+    stack: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "MongoDB", "SQL Server", "React", "Vue", ".NET"],
     highlights: [
       {
-        title: "Quotes and rates, compared",
-        body: "Several certified manufacturers quoting for the same product, laid side by side on one basis.",
+        title: "Six systems shipped",
+        body: "ERP, CRM, pharmacy management, commerce, geolocation and the index that lists them.",
       },
       {
-        title: "The right manufacturing unit",
-        body: "Only WHO-GMP and ISO certified units, matched to the dosage form, volumes and timeline.",
+        title: "Enterprise shape by default",
+        body: "Authentication, role-based access, modular services and REST APIs. The parts that decide whether a system survives its second year.",
       },
       {
-        title: "Packaging, artwork and documents",
-        body: "Packs, artwork and paperwork settled and checked before production starts.",
-      },
-      {
-        title: "Verified before dispatch",
-        body: "A technical expert checks each consignment against what was committed before it leaves.",
+        title: "Built to hand over",
+        body: "Each system is documented and deployable on its own, so a client can run it without the person who wrote it standing next to them.",
       },
     ],
-    facts: [
-      { label: "Status", value: "Operating" },
-      { label: "Service", value: "Consulting and facilitation" },
-      { label: "Manufacturers", value: "WHO-GMP and ISO certified only" },
-      { label: "Group", value: "Sushraj Ventures" },
-      { label: "Role", value: "Founder" },
-    ],
-    flow: ["Understand", "Research", "Compare", "Decide", "Follow through"],
     featured: true,
   },
   {
@@ -276,72 +267,31 @@ export const ventures: WorkItem[] = [
     ],
     featured: true,
   },
-  {
-    slug: "dcodeintellect",
-    name: "DCodeIntellect",
-    kind: "venture",
-    group: "owned",
-    role: "Founder",
-    period: "2018 to present",
-    status: "live",
-    tagline: "The studio behind the product line.",
-    summary:
-      "My engineering brand and the product line under it: ERP, CRM, pharmacy management, commerce and the tooling around them.",
-    narrative: [
-      "DCodeIntellect started as a name to put on work and became the studio the rest of it runs through. Everything in the product line below was designed, built and shipped under it.",
-      "The through-line across those systems is enterprise shape: modular boundaries, role-based access from the first migration rather than bolted on later, REST contracts that a second team can pick up, and reporting that reconciles against the operational data it came from.",
-    ],
-    links: [
-      {
-        label: "github.com/DivisionCode",
-        href: "https://github.com/DivisionCode",
-        kind: "repo",
-      },
-    ],
-    accentVar: "--color-dcode",
-    domains: ["Product studio", "Enterprise systems"],
-    stack: ["Node.js", "Express", "MongoDB", "SQL Server", "React", "Vue", ".NET"],
-    highlights: [
-      {
-        title: "Six systems shipped",
-        body: "ERP, CRM, pharmacy management, trade operations, analytics, commerce, geolocation and the meta hub that indexes them.",
-      },
-      {
-        title: "Enterprise shape by default",
-        body: "JWT auth, role-based access, modular MVC structure and REST APIs. The parts that decide whether a system survives its second year.",
-      },
-      {
-        title: "Built to hand over",
-        body: "Each system is documented and deployable on its own, so a client can run it without the person who wrote it standing next to them.",
-      },
-    ],
-    featured: true,
-  },
 ];
 
 /* ------------------------------------------------------------------------- *
- * Products: systems shipped under DCodeIntellect.
+ * Products: systems shipped under Sushraj Ventures (named DCodeIntellect until 2026).
  * ------------------------------------------------------------------------- */
 export const products: WorkItem[] = [
   {
-    slug: "d-erp",
-    name: "D-ERP",
+    slug: "erp",
+    name: "Sushraj ERP",
     kind: "product",
     role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "Modular ERP for real-world business operations.",
     summary:
       "A full-stack ERP covering inventory, sales, HR, payroll and finance, built as a modular system with role-based access and a clean MVC split rather than one screen per table.",
     narrative: [
       "Most small-business ERPs fail the same way: they model screens instead of the business, and by year two every new requirement means another bolted-on table.",
-      "D-ERP is organised around modules that own their data, inventory, sales, HR and payroll, finance, each exposing a REST contract rather than reaching into another module's collections. Role-based access is enforced at the API, not hidden in the UI.",
+      "Sushraj ERP is organised around modules that own their data, inventory, sales, HR and payroll, finance, each exposing a REST contract rather than reaching into another module's collections. Role-based access is enforced at the API, not hidden in the UI.",
       "Payroll is the module that proves the design: payslips, deductions and reporting all reconcile against the same ledger the finance module reads, so there is exactly one answer to what a month cost.",
     ],
     links: [],
     accentVar: "--color-dcode",
     cover: "/media/work/erp.webp",
-    coverAlt: "D-ERP interface wireframe",
+    coverAlt: "Sushraj ERP interface wireframe",
     domains: ["ERP", "Operations"],
     stack: ["Node.js", "Express", "MongoDB", "React", "JWT"],
     highlights: [
@@ -354,23 +304,23 @@ export const products: WorkItem[] = [
     featured: true,
   },
   {
-    slug: "d-crm",
-    name: "D-CRM",
+    slug: "crm",
+    name: "Sushraj CRM",
     kind: "product",
     role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "Lead to close, with the history attached.",
     summary:
       "A CRM for leads, pipelines, interactions and follow-ups: scored, logged and reminded, so the context travels with the account instead of living in one rep's memory.",
     narrative: [
-      "A CRM earns its keep on the day the person who owned an account leaves. Everything in D-CRM is built so the next person can reconstruct the relationship from the record.",
+      "A CRM earns its keep on the day the person who owned an account leaves. Everything in Sushraj CRM is built so the next person can reconstruct the relationship from the record.",
       "Leads are scored as they move, every interaction is logged against the account, and follow-ups are reminders on the record rather than notes in a calendar. Funnel tracking then reads that same history instead of a separately maintained forecast.",
     ],
     links: [],
     accentVar: "--color-dcode",
     cover: "/media/work/crm.webp",
-    coverAlt: "D-CRM interface wireframe",
+    coverAlt: "Sushraj CRM interface wireframe",
     domains: ["CRM", "Sales"],
     stack: ["Node.js", "Express", "MongoDB", "React", "JWT"],
     highlights: [
@@ -383,23 +333,23 @@ export const products: WorkItem[] = [
     featured: true,
   },
   {
-    slug: "d-pms",
-    name: "D-PMS",
+    slug: "pharmacy",
+    name: "Sushraj Pharmacy",
     kind: "product",
     role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "End-to-end pharmacy management.",
     summary:
       "A pharmacy management system covering stock, prescriptions, billing and supplier records, built for a counter that cannot afford a stockout or an expired batch on the shelf.",
     narrative: [
       "A pharmacy runs on two numbers being right at the same time: what is physically on the shelf, and when it expires. Get either wrong and you are either turning customers away or selling something you should not.",
-      "D-PMS keeps stock, batches and billing on one record so the counter, the store room and the accounts all read the same state.",
+      "Sushraj Pharmacy keeps stock, batches and billing on one record so the counter, the store room and the accounts all read the same state.",
     ],
     links: [],
     accentVar: "--color-dcode",
     cover: "/media/work/pms.webp",
-    coverAlt: "D-PMS interface wireframe",
+    coverAlt: "Sushraj Pharmacy interface wireframe",
     domains: ["Healthcare", "Retail operations"],
     stack: ["Vue.js", "Node.js", "Express", "MongoDB"],
     highlights: [
@@ -415,7 +365,7 @@ export const products: WorkItem[] = [
     name: "ShopVerse",
     kind: "product",
     role: "Design · Architecture · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "A full-featured MERN commerce platform.",
     summary:
@@ -440,17 +390,17 @@ export const products: WorkItem[] = [
     ],
   },
   {
-    slug: "d-geo",
-    name: "D-Geo",
+    slug: "geo",
+    name: "Sushraj Geo",
     kind: "product",
     role: "Design · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "Region maps and a geolocation API.",
     summary:
-      "State and region map visualisations backed by a geolocation API, the mapping layer the other DCodeIntellect systems draw on when data needs a place attached.",
+      "State and region map visualisations backed by a geolocation API, the mapping layer the other Sushraj Ventures systems draw on when data needs a place attached.",
     narrative: [
-      "Operational data almost always has a where. D-Geo is the shared layer that turns that into something you can look at: state and region visualisations served off a geolocation API the other systems can call.",
+      "Operational data almost always has a where. Sushraj Geo is the shared layer that turns that into something you can look at: state and region visualisations served off a geolocation API the other systems can call.",
     ],
     links: [],
     accentVar: "--color-dcode",
@@ -462,17 +412,17 @@ export const products: WorkItem[] = [
     ],
   },
   {
-    slug: "dcode-meta",
-    name: "DCodeIntellect Meta",
+    slug: "index",
+    name: "Sushraj Index",
     kind: "product",
     role: "Design · Build",
-    period: "DCodeIntellect",
+    period: "Sushraj Ventures",
     status: "live",
     tagline: "One index for everything shipped.",
     summary:
       "A lightweight hub that indexes every project: live demo, source and environment, one click each. Data-driven: a new entry in links.json surfaces a new project.",
     narrative: [
-      "The product line outgrew being explainable in a sentence, so Meta became the index: every system with its demo, its source and its live environment in one place.",
+      "The product line outgrew being explainable in a sentence, so the index came next: every system with its demo, its source and its live environment in one place.",
       "It is deliberately tiny: semantic HTML, lazy-loaded assets, CDN delivery, and a JSON file as the only thing you edit to add a project.",
     ],
     links: [
